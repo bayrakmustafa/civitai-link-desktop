@@ -60,22 +60,8 @@ jobs:
           # JVM Max Memory
           jvm_max_memory: 2048M
 
-      # - name: release
-      #   uses: softprops/action-gh-release@v1
-      #   if: always()
-      #   with:
-      #     draft: true
-      #     files: |
-      #       dist/*.exe
-      #       dist/*.zip
-      #       dist/*.dmg
-      #       dist/*.AppImage
-      #       dist/*.snap
-      #       dist/*.deb
-      #       dist/*.rpm
-      #       dist/*.tar.gz
-      #       dist/*.yml
-      #       dist/*.blockmap
-      #       disy/squirrel-windows/*.exe
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Upload Signed File
+        uses: actions/upload-artifact@v3
+        with:
+          name: civitai-link-1.10.39-setup.exe
+          path: ./dist/civitai-link-1.10.39-setup.exe
